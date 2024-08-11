@@ -13,6 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     {
       provide: POCKET_BASE_TOKEN,
+      // TODO: replace this value with env
       useFactory: () => new PocketBase('http://127.0.0.1:8090') as TypedPocketBase
     }
   ]

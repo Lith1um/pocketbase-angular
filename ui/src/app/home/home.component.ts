@@ -1,15 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [RouterOutlet],
   template: `
-    <router-outlet></router-outlet>
+    <div>
+      Home!
+    </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class HomeComponent {
+
+}

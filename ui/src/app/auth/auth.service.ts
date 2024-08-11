@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, signal } from '@angular/core';
 import { POCKET_BASE_TOKEN } from '../pocket-base/pocket-base.token';
 import { TypedPocketBase, UsersResponse } from '../../../pocketbase-types';
 
@@ -6,6 +6,8 @@ import { TypedPocketBase, UsersResponse } from '../../../pocketbase-types';
   providedIn: 'root'
 })
 export class UsersService {
+
+  error = signal<string>('');
 
   constructor(@Inject(POCKET_BASE_TOKEN) private readonly pb: TypedPocketBase) {}
 

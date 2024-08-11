@@ -1,15 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-login',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [RouterOutlet],
   template: `
-    <router-outlet></router-outlet>
+    <div>
+      Login!
+    </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class LoginComponent {
+
+}
