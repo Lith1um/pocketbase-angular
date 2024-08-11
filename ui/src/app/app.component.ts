@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
-import { JsonPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
