@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { TestService } from './test.service';
+import { UsersService } from './users/users.service';
+import { UsersResponse } from '../../pocketbase-types';
 import { JsonPipe } from '@angular/common';
-import { TestResponse } from '../../pocketbase-types';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +9,23 @@ import { TestResponse } from '../../pocketbase-types';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [JsonPipe],
   template: `
-    <sl-button (click)="getTests()">
+    <sl-button (click)="getUsers()">
       <sl-icon name="backpack"></sl-icon>
-      get tests
+      get users
     </sl-button>
-    {{ tests() | json }}
+    <div>
+      {{ users() | json }}
+    </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  testService = inject(TestService);
+  usersService = inject(UsersService);
 
-  tests = signal<TestResponse[] | undefined>(undefined);
+  users = signal<UsersResponse[] | undefined>(undefined);
 
-  async getTests(): Promise<void> {
-    const tests = await this.testService.getUsers();
-    this.tests.set(tests);
+  async getUsers(): Promise<void> {
+    const users = await this.usersService.getUsers();
+    this.users.set(users);
   }
 }
