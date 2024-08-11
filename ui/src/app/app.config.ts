@@ -5,6 +5,7 @@ import { provideHttpClient } from '@angular/common/http';
 import PocketBase from 'pocketbase';
 import { POCKET_BASE_TOKEN } from './pocket-base/pocket-base.token';
 import { TypedPocketBase } from '../../pocketbase-types';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,8 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     {
       provide: POCKET_BASE_TOKEN,
-      // TODO: replace this value with env
-      useFactory: () => new PocketBase('http://127.0.0.1:8090') as TypedPocketBase
+      useFactory: () => new PocketBase(environment.apiUrl) as TypedPocketBase
     }
   ]
 };
