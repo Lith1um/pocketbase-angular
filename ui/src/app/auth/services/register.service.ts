@@ -6,7 +6,9 @@ import { AuthUserCreate } from '../types/user-create.interface';
 
 export type RegisterStatus = 'pending' | 'creating' | 'success' | 'error';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RegisterService {
   // selectors
   registerStatus = computed(() => this.state());

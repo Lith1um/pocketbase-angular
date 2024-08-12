@@ -7,7 +7,9 @@ import { AuthCredentials } from '../types/auth-credentials.interface';
 
 export type LoginStatus = 'pending' | 'authenticating' | 'success' | 'error';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginService {
   // selectors
   loginStatus = computed(() => this.state());
